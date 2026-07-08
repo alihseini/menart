@@ -392,17 +392,22 @@ a {
   grid-auto-columns: minmax(180px, 1fr);
   gap: 0;
   margin-top: 28px;
-  padding: 0 0 8px;
+  padding: 20px 0 10px;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.step-strip::-webkit-scrollbar {
+  display: none;
 }
 
 .step {
   position: relative;
   min-height: 170px;
-  padding: 52px 20px 16px;
+  padding: 42px 20px 16px;
   border-top: 1px solid rgba(181, 138, 59, 0.45);
   scroll-snap-align: start;
   text-align: center;
@@ -445,29 +450,30 @@ a {
 }
 
 .scroll-hint {
-  position: relative;
-  width: max-content;
-  margin: 6px auto 0;
-  color: #aa956f;
-  font-size: 11px;
+  width: fit-content;
+  margin: 14px auto 0;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
 }
 
 .scroll-hint::before,
 .scroll-hint::after {
   content: "";
-  position: absolute;
-  top: 50%;
-  width: 28px;
+  width: 36px;
   height: 1px;
   background: var(--gold);
-}
-
-.scroll-hint::before {
-  right: calc(100% + 10px);
+  opacity: 0.8;
 }
 
 .scroll-hint::after {
-  left: calc(100% + 10px);
+  width: 52px;
+  background:
+    linear-gradient(var(--gold), var(--gold)) left 50% / 36px 1px no-repeat,
+    linear-gradient(45deg, transparent 45%, var(--gold) 46% 54%, transparent 55%) right 50% / 8px 8px no-repeat;
 }
 
 .markets {
@@ -696,10 +702,37 @@ a {
   overflow: hidden;
 }
 
+.masters::after {
+  content: "Scroll to view masters";
+  width: fit-content;
+  margin: 10px auto 0;
+  padding-inline: 48px;
+  color: var(--gold);
+  display: block;
+  background:
+    linear-gradient(var(--gold), var(--gold)) left 50% / 36px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right 50% / 36px 1px no-repeat;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+}
+
 .master-marquee {
-  padding: 5px 0 10px;
+  padding: 5px 0 16px;
   overflow-x: auto;
-  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.master-marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.master-marquee::after {
+  content: "";
+  display: none;
 }
 
 .master-track {
