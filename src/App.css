@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --bg: #fbf7ef;
@@ -27,28 +27,41 @@ body {
     linear-gradient(135deg, rgba(255, 255, 255, 0.88), transparent 36%),
     var(--bg);
   color: var(--text);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 button {
-  font-family: inherit;
+  font-family: "Inter", sans-serif;
 }
 
 h1,
 h2,
-h3 {
+h3,
+.serif,
+.stat strong,
+.vision-item strong,
+.hero-copy h1,
+.project h2 {
   margin: 0;
   color: var(--text);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 500;
-  letter-spacing: 0;
+  letter-spacing: -0.04em;
 }
 
 p {
   margin: 0;
   color: var(--muted);
   line-height: 1.65;
+}
+
+nav,
+p,
+span,
+a,
+.eyebrow {
+  font-family: "Inter", sans-serif;
 }
 
 a {
@@ -350,7 +363,7 @@ a {
 
 .stat strong,
 .vision-item strong {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 500;
 }
 
@@ -419,7 +432,6 @@ a {
 
 .step h3 {
   margin-top: 14px;
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   font-size: 14px;
   font-weight: 700;
 }
@@ -555,7 +567,7 @@ a {
 }
 
 .huge-num {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 70px;
   color: rgba(17, 16, 14, 0.055);
   display: grid;
@@ -603,7 +615,6 @@ a {
 .project h3 {
   margin-top: 2px;
   color: #fff;
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   font-size: 17px;
   font-weight: 500;
 }
