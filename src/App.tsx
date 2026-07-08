@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ElementType } from "react";
 import {
   ArrowRight,
   Download,
@@ -15,6 +16,7 @@ import {
   Landmark,
   Monitor,
   Sparkles,
+  CircleUserRound,
 } from "lucide-react";
 
 const GOLD = "#b58a3b";
@@ -74,27 +76,27 @@ const markets = [
   {
     name: "Russia",
     line: "A strategic gateway for innovation and cultural exchange.",
-    img: "market-russia",
+    img: "/assets/market-russia.jpg",
   },
   {
     name: "China",
     line: "A vast market with growing cultural demand.",
-    img: "market-china",
+    img: "/assets/market-china.jpg",
   },
   {
     name: "Eastern Europe",
     line: "Emerging markets with high potential.",
-    img: "market-europe",
+    img: "/assets/market-eastern-europe.jpg",
   },
   {
     name: "Southeast Asia",
     line: "Dynamic growth and new opportunities.",
-    img: "market-asia",
+    img: "/assets/market-southeast-asia.jpg",
   },
   {
     name: "Eurasia",
     line: "Connecting cultures across the region.",
-    img: "market-eurasia",
+    img: "/assets/market-eurasia.jpg",
   },
 ];
 
@@ -103,26 +105,31 @@ const projectSlides = [
     title: "Mysterious Dreams",
     subtitle: "The Transformed Paradigm of Imagination",
     tag: "COSMOSCOW 2026",
+    image: "/assets/project-mysterious-01.png.png",
   },
   {
     title: "Master Collection",
     subtitle: "Iranian visual arts masters",
     tag: "CURATED WORKS",
+    image: "/assets/project-mysterious-02.png.png",
   },
   {
     title: "Cultural Capital",
     subtitle: "From artistic value to economic value",
     tag: "INVESTMENT",
+    image: "/assets/project-mysterious-03.png.png",
   },
   {
     title: "Global Dialogue",
     subtitle: "Connecting Persian imagination to new markets",
     tag: "INTERNATIONAL",
+    image: "/assets/project-mysterious-04.png.png",
   },
   {
     title: "Market Access",
     subtitle: "A new gateway for collectors and institutions",
     tag: "MENART",
+    image: "/assets/project-mysterious-05.png.png",
   },
 ];
 
@@ -179,8 +186,10 @@ function App() {
         </div>
 
         <div className="hero-visual">
-          <div className="gold-object" />
-          <div className="stone" />
+          <img
+            src="/assets/hero-gold-sculpture.png.png"
+            alt="Gold MENART sculpture on a stone plinth"
+          />
         </div>
       </section>
 
@@ -201,7 +210,7 @@ function App() {
         </div>
 
         <div className="about-mark">
-          <img src="/menart-logo.png" alt="MENART logo" />
+          <img src="/assets/about-emboss-logo.png.png" alt="" />
         </div>
       </section>
 
@@ -274,7 +283,10 @@ function App() {
         <div className="market-list">
           {markets.map((market, i) => (
             <article className="market-row" key={market.name}>
-              <div className={`market-image ${market.img}`} />
+              <div
+                className="market-image"
+                style={{ backgroundImage: `url(${market.img})` }}
+              />
               <div className="market-copy">
                 <h3>{market.name}</h3>
                 <p>{market.line}</p>
@@ -285,7 +297,10 @@ function App() {
         </div>
       </section>
 
-      <section className="project shell">
+      <section
+        className="project shell"
+        style={{ backgroundImage: `url(${currentProject.image})` }}
+      >
         <button className="circle-btn left" onClick={prevSlide}>
           <ChevronLeft size={20} />
         </button>
@@ -329,7 +344,9 @@ function App() {
           <div className="master-track">
             {[...masters, ...masters].map((name, i) => (
               <div className="master" key={`${name}-${i}`}>
-                <div className="avatar">{name[0]}</div>
+                <div className="avatar">
+                  <CircleUserRound size={52} strokeWidth={1.15} />
+                </div>
                 <strong>{name}</strong>
               </div>
             ))}
@@ -419,7 +436,7 @@ function Footer() {
   );
 }
 
-function Tag({ icon: Icon, text }: { icon: React.ElementType; text: string }) {
+function Tag({ icon: Icon, text }: { icon: ElementType; text: string }) {
   return (
     <div className="tag">
       <Icon size={24} color={GOLD} strokeWidth={1.5} />
