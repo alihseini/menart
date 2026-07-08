@@ -283,10 +283,9 @@ function App() {
         <div className="market-list">
           {markets.map((market, i) => (
             <article className="market-row" key={market.name}>
-              <div
-                className="market-image"
-                style={{ backgroundImage: `url(${market.img})` }}
-              />
+              <div className="market-image">
+                <img src={market.img} alt={market.name} />
+              </div>
               <div className="market-copy">
                 <h3>{market.name}</h3>
                 <p>{market.line}</p>
